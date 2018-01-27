@@ -386,3 +386,5 @@ MonoBehaviour:
   DbValue: 0
   PitchValue: 0
   DbThresh: -35
+  curPitch: 0
+  curDb: 0
