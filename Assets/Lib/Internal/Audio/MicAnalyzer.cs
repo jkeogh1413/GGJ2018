@@ -11,46 +11,59 @@ public class MicAnalyzer : MonoBehaviour {
 	public float RmsValue;
 	public float DbValue;
 	public float PitchValue;
-	public float DbThresh = -35f;
+	public float DbThresh = -2f;
 
 	public static int numSamples = 1024;
 	private float fSample;
+	private int recordLength = 300;
 
 	private const float RefValue = 0.1f;
 	private const float Threshold = 0.01f;
+
+	private string microphoneName = null;
+
+	public float curPitch = 0f;
+	public float curDb = 0f;
 
 	float[] samples;
 	float[] spectrum;
 
 	AudioSource audioSource;
 
-	void Update ()
-	{
-		refreshSamples();
-		float db = getDbValue();
-		float pitch = getPitch (0f, 10000f);
-		if (DbThresh <= db)
-		{
-			Debug.Log(string.Format("Tracking significant db of {0} and average pitch of {1}", db.ToString(), pitch.ToString()));
-		}
-	}
-
 	void OnEnable ()
 	{
 		audioSource = GetComponent<AudioSource>();
-        audioSource.clip = Microphone.Start(null, true, 60, AudioSettings.outputSampleRate);
-        audioSource.Play();
-
 		samples = new float[numSamples];
 		spectrum = new float[numSamples];
 
 		fSample = AudioSettings.outputSampleRate;
 		Debug.Log (fSample);
+
+		InvokeRepeating ("refreshMic", 0f, recordLength);
+		InvokeRepeating ("getMicAnalysis", 1f, 0.2f);
 	}
 
-	public void refreshSamples() {
+	void OnDisable() {
+		audioSource.Stop ();
+		Microphone.End (microphoneName);
+	}
+
+	public void refreshMic() {
+		Debug.Log ("Refreshing clip with Microphone data");
+		audioSource.clip = Microphone.Start(microphoneName, true, recordLength, AudioSettings.outputSampleRate);
+		audioSource.Play();
+	}
+
+	public void getMicAnalysis() {
 		audioSource.GetOutputData (samples, 0);
 		audioSource.GetSpectrumData (spectrum, 0, FFTWindow.BlackmanHarris);
+
+		curDb= getDbValue();
+		curPitch = getPitch (0f, 10000f);
+		if (DbThresh <= curDb)
+		{
+			Debug.Log(string.Format("Tracking significant db of {0} and average pitch of {1}", curDb.ToString(), curPitch.ToString()));
+		}
 	}
 
 	public float getDbValue() {
