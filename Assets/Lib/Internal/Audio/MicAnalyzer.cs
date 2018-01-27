@@ -28,16 +28,17 @@ public class MicAnalyzer : MonoBehaviour {
 	{
 		refreshSamples();
 		float db = getDbValue();
-		// if (DbThresh <= db)
-		// {
-		// 	Debug.Log(db.ToString());
-		// }
-		Debug.Log(db.ToString());
+		float pitch = getPitch (0f, 10000f);
+		if (DbThresh <= db)
+		{
+			Debug.Log(string.Format("Tracking significant db of {0} and average pitch of {1}", db.ToString(), pitch.ToString()));
+		}
 	}
+
 	void OnEnable ()
 	{
 		audioSource = GetComponent<AudioSource>();
-        audioSource.clip = Microphone.Start(null, true, 10, AudioSettings.outputSampleRate);
+        audioSource.clip = Microphone.Start(null, true, 60, AudioSettings.outputSampleRate);
         audioSource.Play();
 
 		samples = new float[numSamples];
