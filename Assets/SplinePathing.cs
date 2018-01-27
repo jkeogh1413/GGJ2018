@@ -2,8 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 
+
 //Interpolation between points with a Catmull-Rom spline
-public class SpinePathing : MonoBehaviour
+public class SplinePathing : MonoBehaviour
 {
     //Has to be at least 4 points
     public Transform[] controlPointsList;
@@ -12,9 +13,11 @@ public class SpinePathing : MonoBehaviour
 	public float alpha = 0.2f;
 	public List<Vector3> PosArray = new List<Vector3>();
 
+
     //Display without having to press play
     void OnDrawGizmos()
     {
+		PosArray.Clear();
         Gizmos.color = Color.white;
 
         //Draw the Catmull-Rom spline between the points
@@ -27,7 +30,11 @@ public class SpinePathing : MonoBehaviour
             {
                 continue;
             }
-
+			if (i == 1) {
+				Vector3 p1 = controlPointsList [i].position;
+				PosArray.Add (p1);
+			}
+			  
             DisplayCatmullRomSpline(i);
         }
     }
@@ -42,11 +49,11 @@ public class SpinePathing : MonoBehaviour
         Vector3 p3 = controlPointsList[ClampListPos(pos + 2)].position;
 
         //The start position of the line
-        Vector3 lastPos = p1;	
+		Vector3 lastPos = p1;
 
         //How many times should we loop?
         int loops = Mathf.FloorToInt(1f / alpha);
-		PosArray.Clear();
+//		PosArray.Add(p1);
 
         for (int i = 1; i <= loops; i++)
         {
