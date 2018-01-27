@@ -12,6 +12,8 @@ public class Locomotion : MonoBehaviour {
 	public int currentIndex = 0;
 	public string SplineObjectName;
 	public float speed = 10f;
+	bool loop;
+	bool moveForward = false;
 
 	private float rotationSpeed = 0.5f;
 
@@ -19,9 +21,8 @@ public class Locomotion : MonoBehaviour {
 	void Start () {
 		path = GameObject.Find(SplineObjectName);
 		PosArray = path.GetComponent<SplinePathing> ().PosArray;
-
+		loop = path.GetComponent<SplinePathing> ().isLooping;
 		transform.SetPositionAndRotation (PosArray [0], transform.rotation);
-//		currentIndex += 1;
 	}
 
 	// Update is called once per frame
@@ -36,8 +37,11 @@ public class Locomotion : MonoBehaviour {
 		Debug.DrawRay(transform.position, newDir, Color.red);
 		transform.rotation = Quaternion.LookRotation(newDir);
 
-		if (transform.position == targetPos && PosArray.Count - 1 > currentIndex) {
+		if (moveForward && transform.position == targetPos && PosArray.Count - 1 > currentIndex) {
 			currentIndex += 1;
+			if (loop && PosArray.Count -1 == currentIndex) {
+				currentIndex = 0;
+			}
 		}
 	}
 }
