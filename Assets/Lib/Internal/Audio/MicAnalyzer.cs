@@ -11,6 +11,7 @@ public class MicAnalyzer : MonoBehaviour {
 	public float RmsValue;
 	public float DbValue;
 	public float PitchValue;
+	public float DbThresh = -35f;
 
 	public static int numSamples = 1024;
 	private float fSample;
@@ -23,7 +24,21 @@ public class MicAnalyzer : MonoBehaviour {
 
 	AudioSource audioSource;
 
-	void OnEnable () {
+	void Update ()
+	{
+		refreshSamples();
+		float db = getDbValue();
+		// if (DbThresh <= db)
+		// {
+		// 	Debug.Log(db.ToString());
+		// }
+		Debug.Log(db.ToString());
+	}
+	void OnEnable ()
+	{
+		audioSource = GetComponent<AudioSource>();
+        audioSource.clip = Microphone.Start(null, true, 10, AudioSettings.outputSampleRate);
+        audioSource.Play();
 
 		samples = new float[numSamples];
 		spectrum = new float[numSamples];
