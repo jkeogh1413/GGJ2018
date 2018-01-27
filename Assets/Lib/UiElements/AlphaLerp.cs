@@ -6,15 +6,15 @@ using UnityEngine.UI;
 public class AlphaLerp : MonoBehaviour {
 
     public RawImage raw_image;
+    public MicAnalyzer ma;
 
-    private bool _canLerp;
+    private bool _canLerp = false;
     public bool _pitchReached = false;
     private float _riAlpha;
 
     void Start()
     {
         _riAlpha = raw_image.color.a;
-        _canLerp = true;
     }
 
     void Update()
@@ -22,7 +22,6 @@ public class AlphaLerp : MonoBehaviour {
         if (_canLerp)
         {
             Color c = raw_image.color;
-
             _riAlpha = Mathf.PingPong(Time.time * Random.Range(0.1f, 2f), 1f);
             c.a = _riAlpha;
 
@@ -33,6 +32,8 @@ public class AlphaLerp : MonoBehaviour {
                 AlphaUp();
             }
         }
+
+        Debug.Log("current pitch" + ma.curPitch);
     }
 
 
