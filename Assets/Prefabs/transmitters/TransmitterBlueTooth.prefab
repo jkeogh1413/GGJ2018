@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 65668722290111400}
   - component: {fileID: 114946119498970744}
   m_Layer: 0
-  m_Name: TransmitterBlueTooth 1
+  m_Name: TransmitterBlueTooth
   m_TagString: Transmitter
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
