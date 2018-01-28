@@ -1,21 +1,64 @@
 ﻿using UnityEngine;
-
+using System.Collections;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(AudioSource))]
 public class soundVis : MonoBehaviour
 {
-    void Update()
+
+
+    public int width = 500; // texture width 
+    public int height = 100; // texture height 
+    public Color backgroundColor = Color.black;
+    public Color waveformColor = Color.green;
+    public int size = 2048; // size of sound segment displayed in texture
+    public RawImage ri;
+    private Color[] blank; // blank image array 
+    private Texture2D texture;
+    private float[] samples; // audio samples array
+
+    IEnumerator Start()
     {
-        float[] spectrum = new float[256];
 
-        AudioListener.GetSpectrumData(spectrum, 0, FFTWindow.Rectangular);
+        // create the samples array 
+        samples = new float[size];
 
-        for (int i = 1; i < spectrum.Length - 1; i++)
+        // create the texture and assign to the guiTexture: 
+        texture = new Texture2D(width, height);
+
+        
+        ri.texture = texture;
+
+        // create a 'blank screen' image 
+        blank = new Color[width * height];
+
+        for (int i = 0; i < blank.Length; i++)
         {
-            Debug.DrawLine(new Vector3(i - 1, spectrum[i] + 10, 0), new Vector3(i, spectrum[i + 1] + 10, 0), Color.red);
-            Debug.DrawLine(new Vector3(i - 1, Mathf.Log(spectrum[i - 1]) + 10, 2), new Vector3(i, Mathf.Log(spectrum[i]) + 10, 2), Color.cyan);
-            Debug.DrawLine(new Vector3(Mathf.Log(i - 1), spectrum[i - 1] - 10, 1), new Vector3(Mathf.Log(i), spectrum[i] - 10, 1), Color.green);
-            Debug.DrawLine(new Vector3(Mathf.Log(i - 1), Mathf.Log(spectrum[i - 1]), 3), new Vector3(Mathf.Log(i), Mathf.Log(spectrum[i]), 3), Color.blue);
+            blank[i] = backgroundColor;
         }
+
+        // refresh the display each 100mS 
+        while (true)
+        {
+            GetCurWave();
+            yield return new WaitForSeconds(0.1f);
+        }
+    }
+
+    void GetCurWave()
+    {
+        // clear the texture 
+        texture.SetPixels(blank, 0);
+
+        // get samples from channel 0 (left) 
+        GetComponent<AudioSource>().GetOutputData(samples, 0);
+
+        // draw the waveform 
+        for (int i = 0; i < size; i++)
+        {
+            texture.SetPixel((int)(width * i / size), (int)(height * (samples[i] + 1f) / 2f), waveformColor);
+        } // upload to the graphics card 
+
+        texture.Apply();
     }
 }
