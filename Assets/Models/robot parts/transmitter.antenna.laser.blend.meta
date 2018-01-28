@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
+guid: b546c25ccb0daf84484de43340d09762
+timeCreated: 1517108118
+=======
 guid: 7a84ef64cfd681b4abf24332c95784e2
 timeCreated: 1517097112
+>>>>>>> origin/master
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -8,8 +13,14 @@ ModelImporter:
     100000: //RootNode
     400000: //RootNode
     2100000: Material
+<<<<<<< HEAD
+    2100002: metal
+    2100004: lens
+    2100006: laser
+=======
     2100002: lens
     2100004: lazer_diode
+>>>>>>> origin/master
     2300000: //RootNode
     3300000: //RootNode
     4300000: Cube
