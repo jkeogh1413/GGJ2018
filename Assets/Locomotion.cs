@@ -12,8 +12,9 @@ public class Locomotion : MonoBehaviour {
 	public int currentIndex = 0;
 	public string SplineObjectName;
 	public float speed = 10f;
-	bool loop;
 	public bool moveForward = false;
+	public bool setPositionAtStart = true;
+	bool loop;
 
 	private float rotationSpeed = 0.5f;
 
@@ -23,8 +24,10 @@ public class Locomotion : MonoBehaviour {
 		if (path) {
 			PosArray = path.GetComponent<SplinePathing> ().PosArray;
 			loop = path.GetComponent<SplinePathing> ().isLooping;
-			transform.SetPositionAndRotation (PosArray [0], transform.rotation);
-			transform.LookAt (PosArray [1]);
+			if (setPositionAtStart) {
+				transform.SetPositionAndRotation (PosArray [0], transform.rotation);
+				transform.LookAt (PosArray [1]);
+			}
 		}
 	}
 
@@ -39,8 +42,6 @@ public class Locomotion : MonoBehaviour {
 
 		// Vector3.MoveTowards must be called every frame, else it only moves a little bit
 		transform.position = Vector3.MoveTowards (transform.position, targetPos, step);
-		//Vector3 newDir = Vector3.RotateTowards(transform.forward, targetPos - transform.position, rotationStep, 0f);
-		//transform.rotation = Quaternion.LookRotation(newDir);
 
 		transform.LookAt (targetPos);
 
@@ -63,5 +64,6 @@ public class Locomotion : MonoBehaviour {
 
 	public void Stop () {
 		moveForward = false;
+		targetPos = transform.position;	
 	}
 }
