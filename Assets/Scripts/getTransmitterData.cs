@@ -13,6 +13,8 @@ public class getTransmitterData : MonoBehaviour {
 	public GameObject Wifi;
 	public GameObject Bluetooth;
 
+    public SliderBehavior pitchIndicator;
+
 
 	public bool _pitchReached = false;
 	private float _riAlpha;
@@ -43,6 +45,8 @@ public class getTransmitterData : MonoBehaviour {
         }
 
         CheckTransmitterName(_transmitterName);
+
+        pitchIndicator.currentValue = ma.curPitch;  
 	}
 
     void CheckTransmitterName(string tn)
@@ -54,7 +58,7 @@ public class getTransmitterData : MonoBehaviour {
         }
         else if (tn == "WiFi")
         {
-            Sat.GetComponent<AlphaLerp>().canLerp = true;
+            Wifi.GetComponent<AlphaLerp>().canLerp = true;
            // Debug.Log("current pitch" + ma.curPitch);
         }
         else if (tn == "Radio")
@@ -64,7 +68,7 @@ public class getTransmitterData : MonoBehaviour {
         }
         else if (tn == "Satellite")
         {
-            Wifi.GetComponent<AlphaLerp>().canLerp = true;
+            Sat.GetComponent<AlphaLerp>().canLerp = true;
             //Debug.Log("current pitch" + ma.curPitch);
         }
         else if (tn == "Bluetooth")
