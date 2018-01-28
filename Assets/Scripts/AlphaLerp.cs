@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class AlphaLerp : MonoBehaviour {
 
-	public MicAnalyzer ma;
-
 	public bool canLerp = false;
 	public bool _pitchReached = false;
 	private float _riAlpha;
@@ -28,6 +26,11 @@ public class AlphaLerp : MonoBehaviour {
 
 			_raw_image.color = c;
 		}
+
+        if (!canLerp)
+        {
+            AlphaUp();
+        }
 			
 	}
 

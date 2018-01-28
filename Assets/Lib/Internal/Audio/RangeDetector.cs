@@ -15,7 +15,7 @@ public class RangeDetector : MonoBehaviour {
 		transmitters.Add (
 			new TransmitterInfo () {
 				name = "Laser",
-				startFreq = 20f,
+				startFreq = 200f,
 				endFreq = 300f
 			}
 		);
@@ -23,28 +23,28 @@ public class RangeDetector : MonoBehaviour {
 			new TransmitterInfo () {
 				name = "WiFi",
 				startFreq = 300f,
-				endFreq = 700f
-			}
-		);
-		transmitters.Add (
-			new TransmitterInfo () {
-				name = "Radio",
-				startFreq = 700f,
-				endFreq = 2000f
+				endFreq = 400f
 			}
 		);
 		transmitters.Add (
 			new TransmitterInfo () {
 				name = "Satellite",
-				startFreq = 2000f,
-				endFreq = 7000f
+				startFreq = 400f,
+				endFreq = 500f
+			}
+		);
+		transmitters.Add (
+			new TransmitterInfo () {
+				name = "Radio",
+				startFreq = 500f,
+				endFreq = 600f
 			}
 		);
 		transmitters.Add (
 			new TransmitterInfo () {
 				name = "Bluetooth",
-				startFreq = 7000f,
-				endFreq = 10000f
+				startFreq = 600f,
+				endFreq = 700f
 			}
 		);
 
