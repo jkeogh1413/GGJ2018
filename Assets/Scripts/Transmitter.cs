@@ -21,20 +21,35 @@ public class Transmitter : MonoBehaviour
 
 	void FixedUpdate () {
 		if (withinView) {
-			if (micAnalyzer.curDb < micAnalyzer.DbThresh)
+			// Spin antenna
+			foreach (Transform child in transform) {
+				if (child.name.Contains ("transmitter.antenna")) {
+					child.Rotate (Vector3.up * Time.fixedDeltaTime * 200f, Space.World);
+				}
+			}
+					
+			// Look for matching pitch
+			if (micAnalyzer.curDb < micAnalyzer.DbThresh) {
+				transmitting = false;
+				transform.parent.GetComponent<Locomotion> ().Stop ();
 				return;
+			}
 
 			float pitch = micAnalyzer.curPitch;
 			TransmitterInfo matchingTransmitter = rangeDetector.getTransmitterFromPitch (pitch);
 			if (matchingTransmitter.name == transType) {
-				Debug.Log (string.Format ("Transmitter {0} - Within View: {1} ; Transmitting: {2}", transType, withinView.ToString (), transmitting.ToString ()));
+				//Debug.Log (string.Format ("Transmitter {0} - Within View: {1} ; Transmitting: {2}", transType, withinView.ToString (), transmitting.ToString ()));
 				transmitting = true;
 
 				// JASPER:  Here is where we do the thing
-				//transform.parent.GetComponent<Locomotion> ().move ();
+				transform.parent.GetComponent<Locomotion> ().Move ();
 			} else {
 				transmitting = false;
+				transform.parent.GetComponent<Locomotion> ().Stop ();
 			}
+		} else {
+			transmitting = false;
+			transform.parent.GetComponent<Locomotion> ().Stop ();
 		}
 	}
 
@@ -51,8 +66,6 @@ public class Transmitter : MonoBehaviour
 	void OnTriggerEnter(Collider col) {
 		if (col.gameObject.tag == "GazeDetector") {
 			withinView = true;
-
-			// TANNER:  Play sample noise?
 		}
 	}
 

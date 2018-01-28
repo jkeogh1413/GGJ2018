@@ -13,6 +13,8 @@ public class getTransmitterData : MonoBehaviour {
 	public GameObject Wifi;
 	public GameObject Bluetooth;
 
+    public SliderBehavior pitchIndicator;
+
 
 	public bool _pitchReached = false;
 	private float _riAlpha;
@@ -34,7 +36,7 @@ public class getTransmitterData : MonoBehaviour {
 
 		_transmitterName = rd.getTransmitterFromPitch(ma.curPitch).name;
 		if(_transmitterName != "None") {
-			Debug.Log ("name " +_transmitterName);
+			//Debug.Log ("name " +_transmitterName);
 		}
 
         foreach(GameObject go in _list_o_jects)
@@ -43,6 +45,8 @@ public class getTransmitterData : MonoBehaviour {
         }
 
         CheckTransmitterName(_transmitterName);
+
+        pitchIndicator.currentValue = ma.curPitch;  
 	}
 
     void CheckTransmitterName(string tn)
@@ -50,27 +54,27 @@ public class getTransmitterData : MonoBehaviour {
         if (tn == "Laser")
         {
             Laser.GetComponent<AlphaLerp>().canLerp = true;
-            Debug.Log("current pitch" + ma.curPitch);
+            //Debug.Log("current pitch" + ma.curPitch);
         }
         else if (tn == "WiFi")
         {
-            Sat.GetComponent<AlphaLerp>().canLerp = true;
-            Debug.Log("current pitch" + ma.curPitch);
+            Wifi.GetComponent<AlphaLerp>().canLerp = true;
+           // Debug.Log("current pitch" + ma.curPitch);
         }
         else if (tn == "Radio")
         {
             Radio.GetComponent<AlphaLerp>().canLerp = true;
-            Debug.Log("current pitch" + ma.curPitch);
+           // Debug.Log("current pitch" + ma.curPitch);
         }
         else if (tn == "Satellite")
         {
-            Wifi.GetComponent<AlphaLerp>().canLerp = true;
-            Debug.Log("current pitch" + ma.curPitch);
+            Sat.GetComponent<AlphaLerp>().canLerp = true;
+            //Debug.Log("current pitch" + ma.curPitch);
         }
         else if (tn == "Bluetooth")
         {
             Bluetooth.GetComponent<AlphaLerp>().canLerp = true;
-            Debug.Log("current pitch" + ma.curPitch);
+           // Debug.Log("current pitch" + ma.curPitch);
         }
     }
 }
