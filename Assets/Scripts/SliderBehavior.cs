@@ -17,7 +17,7 @@ public class SliderBehavior : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log(currentValue);
+		//Debug.Log(currentValue);
 		handle.localPosition = new Vector3(
 			track.localPosition.x + track.rect.width * Mathf.Clamp((currentValue - minValue)/(maxValue - minValue) - 0.5f, -0.5f, 0.5f),
 			track.localPosition.y,
