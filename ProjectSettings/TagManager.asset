@@ -3,48 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Transmitter
-  - GazeDetector
-  - Moveable
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  -
+  - 
   - Water
   - UI
-<<<<<<< HEAD
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-  -
-=======
-  - 
-  - 
-  - bots
   - 
   - 
   - 
@@ -68,7 +34,9 @@ TagManager:
   - 
   - 
   - 
->>>>>>> d5fe647d5876c4a28ca6e7abf285fb63e849ce03
+  - 
+  - 
+  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0
