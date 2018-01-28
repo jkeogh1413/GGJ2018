@@ -27,14 +27,18 @@ public class Transmitter : MonoBehaviour
 			float pitch = micAnalyzer.curPitch;
 			TransmitterInfo matchingTransmitter = rangeDetector.getTransmitterFromPitch (pitch);
 			if (matchingTransmitter.name == transType) {
-				Debug.Log (string.Format ("Transmitter {0} - Within View: {1} ; Transmitting: {2}", transType, withinView.ToString (), transmitting.ToString ()));
+				//Debug.Log (string.Format ("Transmitter {0} - Within View: {1} ; Transmitting: {2}", transType, withinView.ToString (), transmitting.ToString ()));
 				transmitting = true;
 
 				// JASPER:  Here is where we do the thing
-				//transform.parent.GetComponent<Locomotion> ().move ();
+				transform.parent.GetComponent<Locomotion> ().Move ();
 			} else {
 				transmitting = false;
+				transform.parent.GetComponent<Locomotion> ().Stop ();
 			}
+		} else {
+			transmitting = false;
+			transform.parent.GetComponent<Locomotion> ().Stop ();
 		}
 	}
 

@@ -47,6 +47,7 @@ public class MicAnalyzer : MonoBehaviour {
 	};
 	void incrementPitchIndex() {
 		curPitchIndex = (curPitchIndex + 1) % hardPitches.Length;
+		Debug.Log (hardPitches [curPitchIndex].ToString ());
 	}
 	void decrementPitchIndex () {
 		int tempIndex = curPitchIndex - 1;
@@ -55,6 +56,7 @@ public class MicAnalyzer : MonoBehaviour {
 		} else {
 			curPitchIndex = tempIndex;
 		}
+		Debug.Log (hardPitches [curPitchIndex].ToString ());
 	}
 	void Update() {
 		if (Input.GetMouseButtonDown (0) || (trackedObj && controller.GetPress(trigger))) {
@@ -109,7 +111,7 @@ public class MicAnalyzer : MonoBehaviour {
 
 		if (DbThresh <= curDb)
 		{
-			Debug.Log(string.Format("Tracking significant db of {0} and average pitch of {1}", curDb.ToString(), curPitch.ToString()));
+			//Debug.Log(string.Format("Tracking significant db of {0} and average pitch of {1}", curDb.ToString(), curPitch.ToString()));
 
 		}
 	}

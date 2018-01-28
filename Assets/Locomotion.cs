@@ -23,6 +23,7 @@ public class Locomotion : MonoBehaviour {
 		PosArray = path.GetComponent<SplinePathing> ().PosArray;
 		loop = path.GetComponent<SplinePathing> ().isLooping;
 		transform.SetPositionAndRotation (PosArray [0], transform.rotation);
+		transform.LookAt (PosArray [1]);
 	}
 
 	// Update is called once per frame
@@ -33,8 +34,10 @@ public class Locomotion : MonoBehaviour {
 
 		// Vector3.MoveTowards must be called every frame, else it only moves a little bit
 		transform.position = Vector3.MoveTowards (transform.position, targetPos, step);
-		Vector3 newDir = Vector3.RotateTowards(transform.forward, targetPos - transform.position, rotationStep, 0f);
-		transform.rotation = Quaternion.LookRotation(newDir);
+		//Vector3 newDir = Vector3.RotateTowards(transform.forward, targetPos - transform.position, rotationStep, 0f);
+		//transform.rotation = Quaternion.LookRotation(newDir);
+
+		transform.LookAt (targetPos);
 
 		// Unless move forward is active the locomotive will not iterate through the positions and thus not move
 		if (moveForward && transform.position == targetPos && PosArray.Count - 1 > currentIndex) {
@@ -45,15 +48,15 @@ public class Locomotion : MonoBehaviour {
 		}
 	}
 
-	void Reverse (int indexes) {
+	public void Reverse (int indexes) {
 		currentIndex = currentIndex - indexes;
 	}
 
-	void Move () {
+	public void Move () {
 		moveForward = true;
 	}
 
-	void Stop () {
+	public void Stop () {
 		moveForward = false;
 	}
 }
