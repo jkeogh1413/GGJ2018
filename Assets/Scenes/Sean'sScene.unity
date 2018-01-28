@@ -1690,7 +1690,6 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1044828577}
-  - component: {fileID: 1044828576}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -1698,37 +1697,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1044828576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1044828575}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67ac23163370d44f9b2b49934b2c1d81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controlPointsList:
-  - {fileID: 614388456}
-  - {fileID: 156965602}
-  - {fileID: 1263730337}
-  - {fileID: 272680329}
-  - {fileID: 0}
-  - {fileID: 0}
-  isLooping: 0
-  alpha: 0.1
-  PosArray:
-  - {x: 81.55481, y: 0.5865251, z: 102.19451}
-  - {x: 81.69488, y: 0.5544, z: 103.08353}
-  - {x: 81.883675, y: 0.51557505, z: 104.042206}
-  - {x: 82.08464, y: 0.47199997, z: 105.04576}
-  - {x: 82.261246, y: 0.425625, z: 106.069374}
-  - {x: 82.37696, y: 0.37839997, z: 107.08824}
-  - {x: 82.39523, y: 0.33227497, z: 108.07755}
-  - {x: 82.27952, y: 0.28919992, z: 109.01249}
-  - {x: 81.993286, y: 0.2511249, z: 109.86824}
-  - {x: 81.5, y: 0.21999988, z: 110.62001}
 --- !u!4 &1044828577
 Transform:
   m_ObjectHideFlags: 0

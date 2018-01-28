@@ -31,17 +31,29 @@ public class Locomotion : MonoBehaviour {
 		float rotationStep = rotationSpeed * Time.deltaTime;
 		targetPos = PosArray[currentIndex];
 
+		// Vector3.MoveTowards must be called every frame, else it only moves a little bit
 		transform.position = Vector3.MoveTowards (transform.position, targetPos, step);
-
 		Vector3 newDir = Vector3.RotateTowards(transform.forward, targetPos - transform.position, rotationStep, 0f);
-		Debug.DrawRay(transform.position, newDir, Color.red);
 		transform.rotation = Quaternion.LookRotation(newDir);
 
+		// Unless move forward is active the locomotive will not iterate through the positions and thus not move
 		if (moveForward && transform.position == targetPos && PosArray.Count - 1 > currentIndex) {
 			currentIndex += 1;
 			if (loop && PosArray.Count -1 == currentIndex) {
 				currentIndex = 0;
 			}
 		}
+	}
+
+	void Reverse (int indexes) {
+		currentIndex = currentIndex - indexes;
+	}
+
+	void Move () {
+		moveForward = true;
+	}
+
+	void Stop () {
+		moveForward = false;
 	}
 }

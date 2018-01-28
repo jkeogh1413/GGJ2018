@@ -5,14 +5,21 @@ using UnityEngine;
 public class BulldozerBehaviour : MonoBehaviour {
 	Vector3 lastPosition;
 	Vector3 deltaPosition;
+	bool dozerColliding = false;
+
+	void OnTriggerEnter (Collider col) {
+		dozerColliding = true;
+	}
+
+	void OnTriggerExit (Collider col) {
+		dozerColliding = false;
+	}
 
 	void OnTriggerStay (Collider col) {
 		if (col.gameObject.tag == "Moveable") {
-			Debug.Log ("last position" + lastPosition);
-			Debug.Log ("transformed position" + transform.position);
 			deltaPosition = transform.position - lastPosition;
-			Debug.Log ("delta" + deltaPosition);
 			col.transform.SetPositionAndRotation (col.transform.position + deltaPosition, col.transform.rotation);
+			lastPosition = transform.position;
 		}
 	}
 
@@ -23,6 +30,8 @@ public class BulldozerBehaviour : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		lastPosition = transform.position;
+		if (!dozerColliding) {
+			lastPosition = transform.position;
+		}
 	}
 }
