@@ -24,7 +24,7 @@ public class Transmitter : MonoBehaviour
 			// Spin antenna
 			foreach (Transform child in transform) {
 				if (child.name.Contains ("transmitter.antenna")) {
-					child.Rotate (transform.forward * Time.fixedDeltaTime * 200f);
+					child.Rotate (Vector3.up * Time.fixedDeltaTime * 200f, Space.World);
 				}
 			}
 					

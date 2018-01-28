@@ -155,7 +155,7 @@ Prefab:
     - target: {fileID: 114072954594258458, guid: 654e6055a4725a147814b3beeaeac201,
         type: 2}
       propertyPath: SplineObjectName
-      value: 
+      value: DozerPath1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 654e6055a4725a147814b3beeaeac201, type: 2}
@@ -476,7 +476,7 @@ Prefab:
     - target: {fileID: 114970881787692832, guid: 55243a2df2e70df4b91b3849b1b0d8b0,
         type: 2}
       propertyPath: SplineObjectName
-      value: 
+      value: DozerPath1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 55243a2df2e70df4b91b3849b1b0d8b0, type: 2}
@@ -1219,7 +1219,11 @@ Prefab:
     - target: {fileID: 114905051240563382, guid: b14b8c7b640ac3b4796a307173a204d0,
         type: 2}
       propertyPath: SplineObjectName
-      value: 
+      value: DozerPath1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4375690612541450, guid: b14b8c7b640ac3b4796a307173a204d0, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b14b8c7b640ac3b4796a307173a204d0, type: 2}
@@ -1657,6 +1661,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 21
       objectReference: {fileID: 0}
+    - target: {fileID: 114130719173961342, guid: 0d469aee3d478fc43b2d8aee5fccda6f,
+        type: 2}
+      propertyPath: SplineObjectName
+      value: DozerPath1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d469aee3d478fc43b2d8aee5fccda6f, type: 2}
   m_IsPrefabParent: 0
@@ -1698,6 +1707,11 @@ Prefab:
     - target: {fileID: 4723581519643154, guid: 41d5aae48b21b734f97d3cd430362037, type: 2}
       propertyPath: m_RootOrder
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 114221207364106728, guid: 41d5aae48b21b734f97d3cd430362037,
+        type: 2}
+      propertyPath: SplineObjectName
+      value: DozerPath1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 41d5aae48b21b734f97d3cd430362037, type: 2}
@@ -1825,6 +1839,11 @@ Prefab:
     - target: {fileID: 4334486579756876, guid: a276c8e98a1f1cb4e8eef411a08f3d53, type: 2}
       propertyPath: m_RootOrder
       value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 114860003827376500, guid: a276c8e98a1f1cb4e8eef411a08f3d53,
+        type: 2}
+      propertyPath: SplineObjectName
+      value: DozerPath1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a276c8e98a1f1cb4e8eef411a08f3d53, type: 2}
@@ -1955,6 +1974,11 @@ Prefab:
     - target: {fileID: 1294128968882426, guid: 958a5c07d967bc1419dcd188d70e20ac, type: 2}
       propertyPath: m_Name
       value: ForkliftBotLaser
+      objectReference: {fileID: 0}
+    - target: {fileID: 114455847753813904, guid: 958a5c07d967bc1419dcd188d70e20ac,
+        type: 2}
+      propertyPath: SplineObjectName
+      value: DozerPath1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 958a5c07d967bc1419dcd188d70e20ac, type: 2}
@@ -2439,7 +2463,7 @@ Prefab:
     - target: {fileID: 114306378586097788, guid: c45507520d2ad034798fbc6ef0dc1039,
         type: 2}
       propertyPath: SplineObjectName
-      value: 
+      value: DozerPath1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: c45507520d2ad034798fbc6ef0dc1039, type: 2}
@@ -3754,7 +3778,7 @@ Prefab:
     - target: {fileID: 114776571197418224, guid: 999893448929a804a9103ead49624461,
         type: 2}
       propertyPath: SplineObjectName
-      value: 
+      value: DozerPath1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 999893448929a804a9103ead49624461, type: 2}
@@ -6071,6 +6095,11 @@ Prefab:
     - target: {fileID: 4984994944969908, guid: 13b7c752b48895a4f8867ac5a60b0bac, type: 2}
       propertyPath: m_RootOrder
       value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 114711758999449306, guid: 13b7c752b48895a4f8867ac5a60b0bac,
+        type: 2}
+      propertyPath: SplineObjectName
+      value: DozerPath1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 13b7c752b48895a4f8867ac5a60b0bac, type: 2}
