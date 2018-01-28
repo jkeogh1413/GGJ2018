@@ -243,7 +243,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1537061519280220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.160004, y: 0, z: 17.969997}
+  m_LocalPosition: {x: 73.67, y: 0.49, z: 96.39}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4388214750930936}
@@ -563,7 +563,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c84f0cfe43e2da34db57f279aca5e27b, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -727,6 +727,7 @@ MonoBehaviour:
   SplineObjectName: 
   speed: 1
   moveForward: 0
+  setPositionAtStart: 1
 --- !u!114 &114999239308509636
 MonoBehaviour:
   m_ObjectHideFlags: 1

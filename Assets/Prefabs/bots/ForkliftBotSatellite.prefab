@@ -189,7 +189,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1585673237477834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.2400055, y: 0, z: 22.579998}
+  m_LocalPosition: {x: 76.59, y: 0.49, z: 101}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4380715266767012}
@@ -575,7 +575,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 418621bf8020345479097a82dc3728b3, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -736,9 +736,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentIndex: 0
-  SplineObjectName: DozerPath1
+  SplineObjectName: 
   speed: 1
   moveForward: 0
+  setPositionAtStart: 1
 --- !u!114 &114932164596776612
 MonoBehaviour:
   m_ObjectHideFlags: 1
