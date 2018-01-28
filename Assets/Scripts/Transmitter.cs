@@ -21,6 +21,14 @@ public class Transmitter : MonoBehaviour
 
 	void FixedUpdate () {
 		if (withinView) {
+			// Spin antenna
+			foreach (Transform child in transform) {
+				if (child.name.Contains ("transmitter.antenna")) {
+					child.Rotate (transform.forward * Time.fixedDeltaTime * 200f);
+				}
+			}
+					
+			// Look for matching pitch
 			if (micAnalyzer.curDb < micAnalyzer.DbThresh)
 				return;
 
@@ -55,8 +63,6 @@ public class Transmitter : MonoBehaviour
 	void OnTriggerEnter(Collider col) {
 		if (col.gameObject.tag == "GazeDetector") {
 			withinView = true;
-
-			// TANNER:  Play sample noise?
 		}
 	}
 
