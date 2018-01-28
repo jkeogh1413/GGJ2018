@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33379321279715348}
   - component: {fileID: 23036437151328736}
   - component: {fileID: 95288489693292124}
+  - component: {fileID: 65900592255243308}
   m_Layer: 0
   m_Name: core
   m_TagString: Untagged
@@ -73,6 +74,7 @@ GameObject:
   - component: {fileID: 33838468428465078}
   - component: {fileID: 23128523444599848}
   - component: {fileID: 95074359388719266}
+  - component: {fileID: 65012206833870340}
   m_Layer: 0
   m_Name: attachment.forklift
   m_TagString: Untagged
@@ -87,7 +89,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1294128968882426}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.11828327, y: -0.1912607, z: -2.0351915}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4558628176168398}
@@ -258,6 +260,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1691960050191810}
   m_Mesh: {fileID: 4300000, guid: 7ac7e68897edfd44a92d21ddbb4ff433, type: 3}
+--- !u!65 &65012206833870340
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1691960050191810}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3305058, y: 2, z: 0.15}
+  m_Center: {x: 0, y: 1, z: 0.075}
 --- !u!65 &65299901017845042
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -270,6 +284,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &65900592255243308
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1038436885340192}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.557954, y: 2.5579548, z: 2.0869803}
+  m_Center: {x: 0, y: 0, z: -0.043490004}
 --- !u!95 &95074359388719266
 Animator:
   serializedVersion: 3
