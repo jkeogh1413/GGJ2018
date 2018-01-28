@@ -28,6 +28,11 @@ public class AlphaLerp : MonoBehaviour {
 
 			_raw_image.color = c;
 		}
+
+        if (!canLerp)
+        {
+            AlphaUp();
+        }
 			
 	}
 
