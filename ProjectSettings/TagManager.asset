@@ -11,9 +11,37 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  -
   - Water
   - UI
+<<<<<<< HEAD
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+=======
   - 
   - 
   - bots
@@ -40,6 +68,7 @@ TagManager:
   - 
   - 
   - 
+>>>>>>> d5fe647d5876c4a28ca6e7abf285fb63e849ce03
   m_SortingLayers:
   - name: Default
     uniqueID: 0
