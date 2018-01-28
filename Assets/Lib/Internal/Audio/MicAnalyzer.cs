@@ -58,6 +58,7 @@ public class MicAnalyzer : MonoBehaviour {
 		}
 		Debug.Log (hardPitches [curPitchIndex].ToString ());
 	}
+	/*
 	void Update() {
 		if (Input.GetMouseButtonDown (0) || (trackedObj && controller.GetPress(trigger))) {
 			incrementPitchIndex ();
@@ -65,6 +66,7 @@ public class MicAnalyzer : MonoBehaviour {
 			decrementPitchIndex ();
 		}
 	}
+	*/
 			
 	// END TEMP
 		
@@ -104,16 +106,10 @@ public class MicAnalyzer : MonoBehaviour {
 		audioSource.GetSpectrumData (spectrum, 0, FFTWindow.BlackmanHarris);
 
 		// TEMP
-		curPitch = hardPitches[curPitchIndex];
-		curDb = 1f;
-		//curDb = getDbValue();
-		//curPitch = getPitch (0f, 10000f);
-
-		if (DbThresh <= curDb)
-		{
-			//Debug.Log(string.Format("Tracking significant db of {0} and average pitch of {1}", curDb.ToString(), curPitch.ToString()));
-
-		}
+		//curPitch = hardPitches[curPitchIndex];
+		//curDb = 1f;
+		curDb = getDbValue();
+		curPitch = getPitch (0f, 10000f);
 	}
 
 	public float getDbValue() {
