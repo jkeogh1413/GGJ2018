@@ -13,7 +13,7 @@ public class Locomotion : MonoBehaviour {
 	public string SplineObjectName;
 	public float speed = 10f;
 	bool loop;
-	bool moveForward = false;
+	public bool moveForward = false;
 
 	private float rotationSpeed = 0.5f;
 

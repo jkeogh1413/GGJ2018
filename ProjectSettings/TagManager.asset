@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Transmitter
+  - GazeDetector
+  - Moveable
   layers:
   - Default
   - TransparentFX
