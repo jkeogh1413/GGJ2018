@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 4d067b4ae7b491946bfccfd900afef21
-timeCreated: 1517090127
+guid: 85c2e3a69b8e9a3409750566079ef76a
+timeCreated: 1517108332
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -8,8 +8,6 @@ ModelImporter:
     100000: //RootNode
     400000: //RootNode
     2100000: unnamed
-    2100002: Material_001
-    2100004: light
     2300000: //RootNode
     3300000: //RootNode
     4300000: Sphere

@@ -9,6 +9,10 @@ ModelImporter:
     400000: //RootNode
     2100000: Material
     2100002: Material_001
+    2100004: Material_001__wifi-background_png
+    2100006: metal
+    2100008: logo
+    2100010: logo__wifi-background_png
     2300000: //RootNode
     3300000: //RootNode
     4300000: Cube
