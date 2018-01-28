@@ -30,7 +30,44 @@ public class MicAnalyzer : MonoBehaviour {
 
 	AudioSource audioSource;
 
-	void OnEnable ()
+	// TEMP
+	public SteamVR_TrackedObject trackedObj;
+	private SteamVR_Controller.Device controller { get { return SteamVR_Controller.Input((int)trackedObj.index); } }
+	private Valve.VR.EVRButtonId trigger = Valve.VR.EVRButtonId.k_EButton_SteamVR_Trigger;
+	private Valve.VR.EVRButtonId padDown = Valve.VR.EVRButtonId.k_EButton_SteamVR_Touchpad;
+
+	public int curPitchIndex = 0;
+	private float[] hardPitches = {
+		0f,
+		100f,
+		500f,
+		1000f,
+		3000f,
+		8000f
+	};
+	void incrementPitchIndex() {
+		curPitchIndex = (curPitchIndex + 1) % hardPitches.Length;
+	}
+	void decrementPitchIndex () {
+		int tempIndex = curPitchIndex - 1;
+		if (tempIndex < 0) {
+			curPitchIndex = hardPitches.Length - 1;
+		} else {
+			curPitchIndex = tempIndex;
+		}
+	}
+	void Update() {
+		if (Input.GetMouseButtonDown (0) || (trackedObj && controller.GetPress(trigger))) {
+			incrementPitchIndex ();
+		} else if (Input.GetMouseButtonDown (1) || (trackedObj && controller.GetPressDown(padDown))) {
+			decrementPitchIndex ();
+		}
+	}
+			
+	// END TEMP
+		
+
+	void Start ()
 	{
 		audioSource = GetComponent<AudioSource>();
 		samples = new float[numSamples];
@@ -48,6 +85,10 @@ public class MicAnalyzer : MonoBehaviour {
 		Microphone.End (microphoneName);
 	}
 
+	void OnApplicationExit() {
+		Microphone.End (microphoneName);
+	}
+		
 	public void refreshMic() {
 		Debug.Log ("Refreshing clip with Microphone data");
 		audioSource.clip = Microphone.Start(microphoneName, true, recordLength, AudioSettings.outputSampleRate);
@@ -55,14 +96,21 @@ public class MicAnalyzer : MonoBehaviour {
 	}
 
 	public void getMicAnalysis() {
+		//Debug.Log (string.Format ("{0} {1} {2}", Microphone.IsRecording (microphoneName).ToString (), Microphone.devices [0], Microphone.devices [Microphone.devices.Length - 1]));
+
 		audioSource.GetOutputData (samples, 0);
 		audioSource.GetSpectrumData (spectrum, 0, FFTWindow.BlackmanHarris);
 
-		curDb= getDbValue();
-		curPitch = getPitch (0f, 10000f);
+		// TEMP
+		curPitch = hardPitches[curPitchIndex];
+		curDb = 1f;
+		//curDb = getDbValue();
+		//curPitch = getPitch (0f, 10000f);
+
 		if (DbThresh <= curDb)
 		{
 			Debug.Log(string.Format("Tracking significant db of {0} and average pitch of {1}", curDb.ToString(), curPitch.ToString()));
+
 		}
 	}
 
