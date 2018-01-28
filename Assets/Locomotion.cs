@@ -20,14 +20,19 @@ public class Locomotion : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		path = GameObject.Find(SplineObjectName);
-		PosArray = path.GetComponent<SplinePathing> ().PosArray;
-		loop = path.GetComponent<SplinePathing> ().isLooping;
-		transform.SetPositionAndRotation (PosArray [0], transform.rotation);
-		transform.LookAt (PosArray [1]);
+		if (path) {
+			PosArray = path.GetComponent<SplinePathing> ().PosArray;
+			loop = path.GetComponent<SplinePathing> ().isLooping;
+			transform.SetPositionAndRotation (PosArray [0], transform.rotation);
+			transform.LookAt (PosArray [1]);
+		}
 	}
 
 	// Update is called once per frame
 	void Update () {
+		if (!path)
+			return;
+		
 		float step = speed * Time.deltaTime;
 		float rotationStep = rotationSpeed * Time.deltaTime;
 		targetPos = PosArray[currentIndex];
