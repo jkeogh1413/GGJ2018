@@ -18,7 +18,8 @@ public class BulldozerBehaviour : MonoBehaviour {
 	void OnTriggerStay (Collider col) {
 		if (col.gameObject.tag == "Moveable") {
 			deltaPosition = transform.position - lastPosition;
-			col.transform.SetPositionAndRotation (col.transform.position + deltaPosition, col.transform.rotation);
+//			col.transform.SetPositionAndRotation (col.transform.position + deltaPosition, col.transform.rotation);
+			col.GetComponent<Rigidbody> ().AddForce (deltaPosition * 2500);
 			lastPosition = transform.position;
 		}
 	}

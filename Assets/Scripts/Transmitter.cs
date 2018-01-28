@@ -27,7 +27,12 @@ public class Transmitter : MonoBehaviour
 					child.Rotate (Vector3.up * Time.fixedDeltaTime * 200f, Space.World);
 				}
 			}
-					
+
+			// Play the note
+			if (!transform.Find ("EmitSound").GetComponent<AudioSource> ().isPlaying) {
+				transform.Find ("EmitSound").GetComponent<AudioSource> ().Play ();
+			}
+
 			// Look for matching pitch
 			if (micAnalyzer.curDb < micAnalyzer.DbThresh) {
 				transmitting = false;
