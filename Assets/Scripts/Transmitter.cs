@@ -29,8 +29,11 @@ public class Transmitter : MonoBehaviour
 			}
 					
 			// Look for matching pitch
-			if (micAnalyzer.curDb < micAnalyzer.DbThresh)
+			if (micAnalyzer.curDb < micAnalyzer.DbThresh) {
+				transmitting = false;
+				transform.parent.GetComponent<Locomotion> ().Stop ();
 				return;
+			}
 
 			float pitch = micAnalyzer.curPitch;
 			TransmitterInfo matchingTransmitter = rangeDetector.getTransmitterFromPitch (pitch);
